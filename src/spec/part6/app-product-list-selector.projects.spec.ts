@@ -24,10 +24,9 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-
   it(`should contain the app-product-list element @app-product-list-selector`, async(() => {
-    // tslint:disable-next-line:max-line-length
-    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?').expect(productListComponentExists).toBe(true);
+    since('The ProductListComponent doesn\'t exist - have you run the `ng` command to generate it yet?')
+    .expect(productListComponentExists).toBe(true);
 
     const fixture = TestBed.createComponent(AppComponent);
     const childNodes = fixture.debugElement.childNodes;
@@ -35,14 +34,14 @@ describe('AppComponent', () => {
     let productPageFound = 0, productListFound = 0, routerOutletFound = 0;
 
     childNodes.forEach(element => {
-      if (element.nativeNode.nodeType = 1) {
-        if (element.nativeNode.localName = 'router-outlet') {
+      if (element.nativeNode.nodeType === 1) {
+        if (element.nativeNode.localName === 'router-outlet') {
           routerOutletFound = routerOutletFound + 1;
         }
-        if (element.nativeNode.localName = 'app-product-list') {
+        if (element.nativeNode.localName === 'app-product-list') {
           productListFound = productListFound + 1;
         }
-        if (element.nativeNode.localName = 'app-product-page') {
+        if (element.nativeNode.localName === 'app-product-page') {
           productPageFound = productPageFound + 1;
         }
       }
@@ -50,10 +49,9 @@ describe('AppComponent', () => {
 
 
     if (!routerOutletFound) {
-      if (productPageFound = 1 && productListFound = 0) {
-        since('The `app-product-list` tag hasn\'t replaced the `app-product-page` tag yet.')
-        .expect(productListFound).toBe(1);
-      } else if (productPageFound = 0 && productListFound = 1) {
+      if (productPageFound === 1 && productListFound === 0) {
+        since('The `app-product-list` tag hasn\'t replaced the `app-product-page` tag yet.').expect(productListFound).toBe(1);
+      } else if (productPageFound === 0 && productListFound === 1) {
         // test should pass
       }
     } else {
