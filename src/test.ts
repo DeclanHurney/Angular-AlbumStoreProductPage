@@ -17,7 +17,7 @@ require('jasmine2-custom-message');
 
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
-declare var require: any;
+declare var require1: any;
 const part = __karma__.config.args[0];
 
 // Prevent Karma from running prematurely.
@@ -29,10 +29,11 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 
-// load all tests, and then filter into specFiles array if the test path matches the `part#` passed in as an argument into the variable `part`
-const context = require.context('./', true, /projects\.spec\.ts/)
-let specFiles = context.keys().filter((path) => {
-  let filterRegExp = (part) ? new RegExp(part, 'g') : /projects\.spec\.ts/g
+// load all tests, and then filter into specFiles array if the test path
+// matches the `part#` passed in as an argument into the variable `part`
+const context = require1.context('./', true, /projects\.spec\.ts/)
+const specFiles = context.keys().filter((path) => {
+  const filterRegExp = (part) ? new RegExp(part, 'g') : /projects\.spec\.ts/g
   return filterRegExp.test(path)
 })
 

@@ -9,8 +9,8 @@ import { Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 const appRoutes: Routes = [
-  { path: "products", component: null },
-  { path: "product/:id", component: null }
+  { path: 'products', component: null },
+  { path: 'product/:id', component: null }
 ];
 
 describe('AppComponent', () => {
@@ -23,6 +23,7 @@ describe('AppComponent', () => {
 
   it('should only contain a single tag named router-outlet @app-component-html-uses-router-outlet', async(() => {
     const AppComponentFixture = TestBed.createComponent(AppComponent);
+    // tslint:disable-next-line:max-line-length
     since('There\'s currently no `router-outlet` tag in the AppComponent HTML file.').expect(AppComponentFixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
   }));
 
